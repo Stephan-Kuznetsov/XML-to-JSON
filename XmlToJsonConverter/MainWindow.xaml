@@ -1,0 +1,38 @@
+﻿<Window x:Class="XmlToJsonConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="630" Width="607" Background="Black">
+    <Window.Resources>
+        <BitmapImage x:Key="Remove" UriSource="Resources/close.jpg"></BitmapImage>
+        <BitmapImage x:Key="Open" UriSource="Resources/ShowL.png"></BitmapImage>
+        <BitmapImage x:Key="DisOpen" UriSource="Resources/ShowLDis.png"></BitmapImage>
+        <BitmapImage x:Key="XjsIcon" UriSource="Resources/XmlJsonIcon.png"></BitmapImage>
+    </Window.Resources>
+    <Grid Name="MainScr" Background="#FF030F00" >
+        <Button Name="ConvertButton" Content="Конвертировать" Click="Button_Click" Margin="10,548,9.8,4.8" Background="#CC191919" Foreground="#FFB0AEB2" FontSize="24" IsEnabled="False"/>
+        <TextBlock TextWrapping="Wrap" Text="Конвертирование xml в json" VerticalAlignment="Top" Height="47" Margin="2,2,2,0" Background="#FF212121" FontSize="36" TextAlignment="Center" ToolTip="Настоящую программу разработал Кузнецов Степан, в 2018 году">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF797979" Offset="1"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+        <TextBox Name="PathF" HorizontalAlignment="Left" Height="29" Margin="10,155,0,0" TextWrapping="Wrap" Text="Сохранить исходные пути" VerticalAlignment="Top" Width="444" FontSize="18" Background="#FF1C1C1C" Foreground="#FF60A8A5" SelectionBrush="#FF7E00D7"/>
+        <Button Content=". . ." Click="SetSavePath" VerticalContentAlignment="Center" Margin="459,155,12.4,0" VerticalAlignment="Top" Height="29" Background="#FF373737" BorderBrush="#FFC6C6C6" Foreground="#FF7964CD"/>
+        <TextBlock Name="InfoView" Margin="0,487,-0.2,0" TextAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Foreground="#FFB4CEB6" Background="#FF171B16" Text="Общий прогресс" FontSize="20"/>
+        <ProgressBar ValueChanged="Progressb_ValueChanged" Name="Progressb" Height="24" Margin="10,519,9.8,0" VerticalAlignment="Top" Foreground="#FF5406B0"/>
+        <ScrollViewer Height="177" Margin="4,190,3.8,0" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto">
+            <Grid Name="FilesViewer" Background="#FF1C1C1C" Drop="FilesViewer_Drop" AllowDrop="True"/>
+        </ScrollViewer>
+        <TextBlock TextAlignment="Center" Margin="0,116,0,0" TextWrapping="Wrap" Text="Укажите путь сохранения конвертированных файлов" VerticalAlignment="Top" Height="32" Foreground="#FF8ACD4E" FontSize="18" Background="#FF1D1D1D"/>
+        <TextBlock Margin="0,400,0,0" Text="Лог конвертера" TextAlignment="Center" VerticalAlignment="Top" Background="#FF242424" Foreground="White"/>
+        <TextBlock Name="LogView" Margin="2,416,2,0" TextWrapping="Wrap" Text="Ничего не происходит" Foreground="#FF7FC44B" Height="17" VerticalAlignment="Top"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="53" Margin="2,433,1.8,0" VerticalAlignment="Top" Background="#FF1D1D1D">
+            <Grid Name="LogGr">
+
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>
